@@ -13,7 +13,6 @@ using System.Threading.Tasks;
 
 namespace DatasoftECommerceApi.Controllers
 {
-    [AllowAnonymous]
     [Route("api/[controller]")]
     [ApiController]
     public class ProductsController : ControllerBase

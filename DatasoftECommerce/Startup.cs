@@ -2,9 +2,11 @@ using AutoMapper;
 using BusinessLayer;
 using DataAccessLayer;
 using DatasoftECommerceApi;
+using Domain.Entities;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -37,6 +39,9 @@ namespace DatasoftECommerce
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "DatasoftECommerce", Version = "v1" });
             });
             services.AddDbContext<ApplicationDbContext>();
+            services.AddIdentity<User, UserRole>().AddEntityFrameworkStores<ApplicationDbContext>()
+                .AddTokenProvider<DataProtectorTokenProvider<User>>("email");
+
             var mapperConfig = new MapperConfiguration(mc =>
             {
                 mc.AddProfile(new MappingProfile());
@@ -49,8 +54,10 @@ namespace DatasoftECommerce
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app, IWebHostEnvironment env, RoleManager<UserRole> roleManager)
         {
+            SeedDataApplicationRoles.SeedRoles(roleManager);
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

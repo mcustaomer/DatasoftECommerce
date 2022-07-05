@@ -1,6 +1,8 @@
 ﻿using BusinessLayer.Generic;
 using BusinessLayer.Interfaces;
 using BusinessLayer.Services;
+using Domain.Entities;
+using Microsoft.AspNetCore.Identity;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using System.Collections.Generic;
@@ -17,6 +19,7 @@ namespace BusinessLayer
             services.AddTransient(typeof(IGenericService<>), typeof(GenericService<>));
             services.AddTransient<IProductService, ProductService>();
             services.AddTransient<ICategoryService, CategoryService>();
+            services.AddTransient<IUserService, UserService>();
 
             return services;
         }
