@@ -14,5 +14,9 @@ namespace BusinessLayer.Interfaces
         UserResponseDto Login(string email, string password);
 
         UserResponseDto Register(User user, string password, string rePassword);
+
+        string RoleAssign(string userId, string roleName, bool hasRole);
+
+        string UserAdd(User user, string roleName, string password, string rePassword);
     }
 }

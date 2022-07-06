@@ -25,6 +25,7 @@ namespace DatasoftECommerceApi.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("insert")]
         public IActionResult Insert(CategoryCreateVm model)
         {
@@ -35,6 +36,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("insert-all")]
         public IActionResult InsertAll(List<CategoryCreateVm> models)
         {
@@ -49,6 +51,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {
@@ -57,6 +60,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpDelete("delete-all")]
         public IActionResult DeleteAll(List<int> ids)
         {
@@ -65,6 +69,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("update")]
         public IActionResult Update(CategoryCreateVm model)
         {
@@ -75,6 +80,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("update-all")]
         public IActionResult UpdateAll(List<CategoryCreateVm> models)
         {
@@ -90,6 +96,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager, Assistant")]
         [HttpGet("get/{id}")]
         public IActionResult Get(int id)
         {
@@ -99,6 +106,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok(mapped);
         }
 
+        [Authorize(Roles = "Manager, Assistant")]
         [HttpGet("get-all")]
         public IActionResult GetAll()
         {

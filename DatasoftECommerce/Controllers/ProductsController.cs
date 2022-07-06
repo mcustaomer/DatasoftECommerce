@@ -25,9 +25,12 @@ namespace DatasoftECommerceApi.Controllers
             _mapper = mapper;
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("insert")]
         public IActionResult Insert(ProductCreateVm model)
         {
+            var result = 10 / model.Price;
+
             var product =  _mapper.Map<Product>(model);
 
             _productService.Insert(product);
@@ -35,6 +38,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("insert-all")]
         public IActionResult InsertAll(List<ProductCreateVm> models)
         {
@@ -49,6 +53,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpDelete("delete/{id}")]
         public IActionResult Delete(int id)
         {
@@ -57,6 +62,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpDelete("delete-all")]
         public IActionResult DeleteAll(List<int> ids)
         {
@@ -65,6 +71,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("update")]
         public IActionResult Update(ProductCreateVm model)
         {
@@ -75,6 +82,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager")]
         [HttpPost("update-all")]
         public IActionResult UpdateAll(List<ProductCreateVm> models)
         {
@@ -90,6 +98,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok();
         }
 
+        [Authorize(Roles = "Manager, Assistant")]
         [HttpGet("get/{id}")]
         public IActionResult Get(int id)
         {
@@ -99,6 +108,7 @@ namespace DatasoftECommerceApi.Controllers
             return Ok(mapped);
         }
 
+        [Authorize(Roles = "Manager, Assistant")]
         [HttpGet("get-all/{categoryId}")]
         public IActionResult GetAll(int categoryId)
         {

@@ -10,5 +10,10 @@ namespace BusinessLayer.Interfaces
 {
     public interface IUserRoleService
     {
+        string CreateOrUpdateRole(string id, string name);
+
+        string DeleteRole(string name);
+
+        List<UserRole> RoleList();
     }
 }

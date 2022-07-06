@@ -19,13 +19,15 @@ namespace BusinessLayer.Services
             _roleManager = roleManager;
         }
 
-        public void CreateOrUpdateRole(string id, string name)
+        public string CreateOrUpdateRole(string id, string name)
         {
-            if(id != null)
+            if(id != "0")
             {
                 var role = _roleManager.FindByIdAsync(id).Result;
                 role.Name = name;
                 _roleManager.UpdateAsync(role);
+
+                return "Başarıyla güncelleme sağlandı.";
             }
 
             var result = _roleManager.CreateAsync(new UserRole
@@ -35,13 +37,15 @@ namespace BusinessLayer.Services
 
             if (result.Succeeded)
             {
+                return "Ekleme başarıyla sağlandı.";
             }
             else
             {
+                return "Ekleme başarısız.";
             }
         }
 
-        public void DeleteRole(string name)
+        public string DeleteRole(string name)
         {
             var role = _roleManager.FindByNameAsync(name).Result;
 
@@ -49,15 +53,17 @@ namespace BusinessLayer.Services
 
             if (res.Succeeded)
             {
+                return "Silme işlemi başarılı.";
             }
             else
             {
+                return "Silme işlemi başarısız.";
             }
         }
 
-        public void RoleList()
+        public List<UserRole> RoleList()
         {
-            _roleManager.Roles.ToList();
+            return _roleManager.Roles.ToList();
         }
     }
 }
