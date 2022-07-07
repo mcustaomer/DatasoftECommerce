@@ -3,13 +3,15 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 16
 VisualStudioVersion = 16.0.31605.320
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DatasoftECommerceApi", "DatasoftECommerce\DatasoftECommerceApi.csproj", "{77601ADB-F2A2-4C53-97D8-A73252552365}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DatasoftECommerceApi", "DatasoftECommerce\DatasoftECommerceApi.csproj", "{77601ADB-F2A2-4C53-97D8-A73252552365}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Domain", "Domain\Domain.csproj", "{D91BCC4E-9691-47F5-96FA-75F637095781}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Domain", "Domain\Domain.csproj", "{D91BCC4E-9691-47F5-96FA-75F637095781}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{5607ED7B-219C-422B-9D9C-F7C8CEED1C48}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccessLayer", "DataAccessLayer\DataAccessLayer.csproj", "{5607ED7B-219C-422B-9D9C-F7C8CEED1C48}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{AB0F29EC-3C74-43CE-B17A-D067BD2FE5BC}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "BusinessLayer", "BusinessLayer\BusinessLayer.csproj", "{AB0F29EC-3C74-43CE-B17A-D067BD2FE5BC}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MongoDbLogLayer", "MongoDbLogLayer\MongoDbLogLayer.csproj", "{5B8733FC-70E6-4569-8A96-3AA998C5C270}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -33,6 +35,10 @@ Global
 		{AB0F29EC-3C74-43CE-B17A-D067BD2FE5BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{AB0F29EC-3C74-43CE-B17A-D067BD2FE5BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AB0F29EC-3C74-43CE-B17A-D067BD2FE5BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5B8733FC-70E6-4569-8A96-3AA998C5C270}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5B8733FC-70E6-4569-8A96-3AA998C5C270}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5B8733FC-70E6-4569-8A96-3AA998C5C270}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5B8733FC-70E6-4569-8A96-3AA998C5C270}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

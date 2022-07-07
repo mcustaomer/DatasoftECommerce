@@ -18,6 +18,8 @@ using Microsoft.Extensions.Hosting;
 using Microsoft.Extensions.Logging;
 using Microsoft.IdentityModel.Tokens;
 using Microsoft.OpenApi.Models;
+using MongoDbLogLayer;
+using MongoDbLogLayer.Settings;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -92,10 +94,13 @@ namespace DatasoftECommerce
                 };
             });
 
+            services.Configure<DatasoftLogDbSettings>(Configuration.GetSection(nameof(DatasoftLogDbSettings)));
+
             IMapper mapper = mapperConfig.CreateMapper();
             services.AddSingleton(mapper);
             services.AddBusinessDependencies();
             services.AddDataAccessDependencies();
+            services.AddMongoDbDependencies();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

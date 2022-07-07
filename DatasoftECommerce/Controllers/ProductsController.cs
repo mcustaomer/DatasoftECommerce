@@ -29,8 +29,6 @@ namespace DatasoftECommerceApi.Controllers
         [HttpPost("insert")]
         public IActionResult Insert(ProductCreateVm model)
         {
-            var result = 10 / model.Price;
-
             var product =  _mapper.Map<Product>(model);
 
             _productService.Insert(product);
